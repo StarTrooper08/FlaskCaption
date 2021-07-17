@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlaskProject - AudiotoText</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+</head>
+<body>
+    <header>Transcriber</header>
+    <div id="mainContainer">
+        <h2>Upload Audio File</h2>
+        <form method="post" enctype="multipart/form-data">
+           <input type="file" name="file" id="fileinput">
+           <br>
+           <input type="submit" id="submitButton" value="Process"/>
+
+        </form>
+        {% if transcript != "" %}
+        <div class="speechTranscriptContainer">
+            <h1>Transcripted Text</h1>
+            <p>{{transcript}}</p>
+        </div>
+        {% endif %}
+
+
+    </div>
+</body>
+</html>
