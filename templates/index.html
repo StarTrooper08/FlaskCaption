@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,27 @@
     <title>FlaskProject - AudiotoText</title>
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
 </head>
+
 <body>
-    <header>Transcriber</header>
-    <div id="mainContainer">
+    <h1 class="title">Transcriber</h1>
+    <main id="mainContainer">
         <h2>Upload Audio File</h2>
-        <form method="post" enctype="multipart/form-data">
-           <input type="file" name="file" id="fileinput">
-           <br>
-           <input type="submit" id="submitButton" value="Process"/>
-
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileinput" required>
+            <input class="btn" type="submit" id="submitButton" value="Process" onclick="animateLoader()" />
         </form>
-        {% if transcript != "" %}
+
+        <h1 class="transcripted-text-head">Transcripted Text</h1>
         <div class="speechTranscriptContainer">
-            <h1>Transcripted Text</h1>
-            <p>{{transcript}}</p>
+            <p id="transcripted-text">
+                {% if transcript != "" %}
+                    <p onload="onPLoad()">{{transcript}}</p>
+                {% endif %}
+            </p>
         </div>
-        {% endif %}
+    </main>
 
-
-    </div>
+    <script src="{{url_for('static', filename='scripts/main.js')}}"></script>
 </body>
+
 </html>
