@@ -1,52 +1,107 @@
-*{
-    box-sizing: border-box;
-}
-body{
-    margin: 0;
-    padding: 0;
-    background-color: aliceblue;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1, p , input{
-    font-family: cursive;
+:root {
+  --background-primary: #f0f8ff;
+  --background-secondary: #fff;
+  --bg-btn: #0191fe;
+  --bg-btn-hover: #0191fecc;
 }
 
-header{
-    display: flex;
-    justify-content: center;
-    
-    font-size: 50px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
+body {
+  background: var(--background-primary);
+  font-family: cursive;
 }
 
-#mainContainer{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 10px;
-    background-color: white;
-    margin-top: 15%;
-    
-    
-    
-    
-    
+h1.title {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 3rem;
+  padding: 1rem;
 }
 
-#submitButton{
-    background-color: #0191FE;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-left: 30%;
-    padding: 10px;
-
-    
+main {
+  width: 80vw;
+  height: 70vh;
+  margin: 2rem auto;
+  background: var(--background-secondary);
+  text-align: center;
 }
 
-#submitButton:hover{
-    cursor: pointer;
+main > h2 {
+  padding: 2rem 0;
+}
+
+.btn {
+  background-color: var(--bg-btn);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: var(--bg-btn-hover);
+}
+
+.transcripted-text-head {
+  margin-top: 5vh;
+  margin-bottom: 2rem;
+}
+
+.speechTranscriptContainer {
+  height: 35vh;
+  text-align: justify;
+  padding: 2rem;
+  background: var(--background-primary);
+  overflow-y: scroll;
+  margin: 1rem 5rem;
+  border: 1px solid rgb(140, 191, 243);
+}
+
+.speechTranscriptContainer::-webkit-scrollbar {
+  scrollbar-width: 2px;
+}
+
+.loader {
+  margin: auto;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-button {
+  background-color: initial;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightblue;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-primary);
 }
